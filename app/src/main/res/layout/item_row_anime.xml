@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    card_view:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/img_item_cover_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="8dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_item_cover"
+                android:layout_width="80dp"
+                android:layout_height="115dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/cover_image"
+
+                tools:src="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_item_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/rounded_opaque_orange_8dp"
+            android:paddingHorizontal="8dp"
+            android:textColor="@color/orange"
+            card_view:layout_constraintStart_toEndOf="@+id/img_item_cover_wrapper"
+            card_view:layout_constraintTop_toTopOf="@+id/img_item_cover_wrapper"
+            tools:text="@string/anime_type" />
+
+        <TextView
+            android:id="@+id/tv_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            card_view:layout_constraintEnd_toEndOf="@id/tv_item_rating"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_item_type"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_item_type"
+            tools:text="@string/anime_title" />
+
+        <TextView
+            android:id="@+id/tv_item_synopsis"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="4dp"
+            android:maxLines="3"
+            card_view:layout_constraintBottom_toTopOf="@+id/tv_item_rating"
+            card_view:layout_constraintEnd_toEndOf="@+id/tv_item_rating"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_item_title"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_item_title"
+            tools:text="@string/anime_synopsis" />
+
+        <ImageView
+            android:id="@+id/rating"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_star_24dp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/img_item_cover_wrapper"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_item_synopsis"
+            card_view:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_item_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            card_view:layout_constraintBottom_toBottomOf="@+id/rating"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/rating"
+            card_view:layout_constraintTop_toTopOf="@+id/rating"
+            tools:text="@string/anime_rating" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
