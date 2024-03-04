@@ -1,6 +1,7 @@
 package com.andika.yomutoki
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,5 +37,10 @@ class ListAnimeAdapter(private val listAnime: ArrayList<Anime>) :
         holder.tvRating.text = "${String.format("%.1f", rated)}/10.0"
         holder.tvType.text = type
 
+        holder.itemView.setOnClickListener{
+            val intentDetail = Intent(holder.itemView.context, AnimeDetail::class.java)
+            intentDetail.putExtra("extra_anime", listAnime[holder.adapterPosition])
+            holder.itemView.context.startActivity(intentDetail)
+        }
     }
 }

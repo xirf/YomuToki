@@ -4,6 +4,10 @@
     <string name="title_user">User</string>
     <string name="title_notifications">Notifications</string>
     <string name="cover_image">Cover Image</string>
+    <string name="screenshot_of_anime_or_cover_image">Screenshot of anime or cover image</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="like">Like</string>
+    <string name="share">share</string>
 
     <string-array name="data_title">
         <item>Golden Time</item>

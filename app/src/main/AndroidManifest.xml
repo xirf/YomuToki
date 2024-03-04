@@ -15,7 +15,7 @@
         android:theme="@style/Theme.YomuToki"
         tools:targetApi="31">
         <activity
-            android:name=".AnimeAbout"
+            android:name=".AnimeDetail"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
