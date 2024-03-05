@@ -8,6 +8,8 @@
     <string name="bookmark">Bookmark</string>
     <string name="like">Like</string>
     <string name="share">share</string>
+    <string name="back_button">back button</string>
+    <string name="anime_detail">Anime Detail</string>
 
     <string-array name="data_title">
         <item>Golden Time</item>

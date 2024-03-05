@@ -18,12 +18,6 @@ class AnimeDetail : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_anime_detail)
 
-        if (supportActionBar != null) {
-            supportActionBar?.setDisplayHomeAsUpEnabled(true);
-            supportActionBar?.setDisplayShowHomeEnabled(true);
-            supportActionBar?.title = "Anime Detail"
-        }
-
         val ivCover: ImageView = findViewById(R.id.anime_cover)
         val tvTitle: TextView = findViewById(R.id.anime_title)
         val ivHeroPicture: ImageView = findViewById(R.id.anime_hero_picture)
@@ -44,8 +38,4 @@ class AnimeDetail : AppCompatActivity() {
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return true
-    }
 }

@@ -1,113 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AnimeDetail">
+    android:fitsSystemWindows="true">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/anime_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?android:attr/windowBackground"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        card_view:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="#0000"
+            android:contentDescription="@string/back_button"
+            android:src="@drawable/ic_chevron_left_black_24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="36dp"
+            android:text="@string/anime_detail"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
+        android:id="@id/anime_detail_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        card_view:layout_constraintBottom_toBottomOf="parent">
 
+        <include layout="@layout/anime_detail_bottom_button" />
+    </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-
-            >
-
-            <ImageView
-                android:id="@+id/anime_hero_picture"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/screenshot_of_anime_or_cover_image"
-                android:scaleType="centerCrop"
-                card_view:layout_constraintTop_toTopOf="parent"
-                tools:src="@tools:sample/avatars" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/anime_cover_wrapper"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                card_view:cardCornerRadius="8dp"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintStart_toStartOf="parent">
-
-                <ImageView
-                    android:id="@+id/anime_cover"
-                    android:layout_width="105dp"
-                    android:layout_height="150dp"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/screenshot_of_anime_or_cover_image"
-                    android:scaleType="centerCrop"
-                    tools:src="@tools:sample/avatars" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/anime_title"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="58dp"
-                android:layout_marginBottom="8dp"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                card_view:layout_constraintBottom_toTopOf="@+id/anime_bookmark"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintRight_toRightOf="parent"
-                card_view:layout_constraintStart_toEndOf="@+id/anime_cover_wrapper"
-                card_view:layout_constraintTop_toTopOf="@+id/anime_cover_wrapper"
-                tools:text="@string/anime_title" />
-
-            <ImageButton
-                android:id="@+id/anime_heart"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginHorizontal="4dp"
-                android:background="#0000"
-                android:contentDescription="@string/like"
-                android:src="@drawable/ic_heart_black_24dp"
-                card_view:layout_constraintBottom_toBottomOf="@+id/anime_cover_wrapper"
-                card_view:layout_constraintStart_toStartOf="@+id/anime_title" />
-
-            <ImageButton
-                android:id="@+id/anime_bookmark"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginHorizontal="4dp"
-                android:background="#0000"
-                android:contentDescription="@string/bookmark"
-                android:src="@drawable/ic_bookmark_black_24dp"
-                card_view:layout_constraintBottom_toBottomOf="@+id/anime_cover_wrapper"
-                card_view:layout_constraintStart_toEndOf="@+id/anime_heart" />
-
-            <ImageButton
-                android:id="@+id/anime_detail_share"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginHorizontal="4dp"
-                android:background="#0000"
-                android:contentDescription="@string/share"
-                android:src="@drawable/ic_share_black_24dp"
-                card_view:layout_constraintBottom_toBottomOf="@+id/anime_cover_wrapper"
-                card_view:layout_constraintStart_toEndOf="@+id/anime_bookmark" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        card_view:layout_constraintBottom_toTopOf="@+id/anime_detail_toolbar_container"
+        card_view:layout_constraintTop_toBottomOf="@+id/anime_detail_toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp">
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <include layout="@layout/anime_detail_anime_cover" />
+
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
