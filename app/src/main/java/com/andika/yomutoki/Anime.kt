@@ -17,5 +17,6 @@ data class Anime(
     val status: String,
     val picture: String,
     val animeCover: String,
-    val characters: String
+    val characters: String,
+    val url: String
 ) : Parcelable

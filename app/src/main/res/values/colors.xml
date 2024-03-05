@@ -11,4 +11,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF5722</color>
     <color name="opaque_orange">#40F6781D</color>
+    <color name="opaque_gray">#405C688B</color>
 </resources>

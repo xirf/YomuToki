@@ -17,7 +17,7 @@ import com.andika.yomutoki.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
     private lateinit var rvAnime: RecyclerView
-    private var list: ArrayList<Anime> = ArrayList()
+    private lateinit var list: ArrayList<Anime>
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -35,7 +35,10 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
         rvAnime = root.findViewById(R.id.rv_home)
 
-        list.addAll(getListAnime())
+        list = ArrayList()
+        if (list.isEmpty()) {
+            list.addAll(getListAnime())
+        }
 
         rvAnime.layoutManager = LinearLayoutManager(rvAnime.context)
         val listAnimeAdapter = ListAnimeAdapter(list)
@@ -60,6 +63,7 @@ class HomeFragment : Fragment() {
         val dataPicture = resources.getStringArray(R.array.data_picture)
         val dataAnimeCover = resources.getStringArray(R.array.data_cover)
         val dataCharacters = resources.getStringArray(R.array.data_characters)
+        val dataUrl = resources.getStringArray(R.array.data_url)
         val listAnime = ArrayList<Anime>()
         for (i in dataTitle.indices) {
             val anime = Anime(
@@ -75,7 +79,8 @@ class HomeFragment : Fragment() {
                 status = dataStatus[i],
                 picture = dataPicture[i],
                 animeCover = dataAnimeCover[i],
-                characters = dataCharacters[i]
+                characters = dataCharacters[i],
+                url = dataUrl[i]
             )
             listAnime.add(anime)
         }

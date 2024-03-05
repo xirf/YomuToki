@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="258dp"
@@ -11,17 +11,19 @@
         android:id="@+id/anime_hero_picture"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/screenshot_of_anime_or_cover_image"
         android:scaleType="centerCrop"
         card_view:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="39dp"
         tools:src="@tools:sample/avatars" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/anime_cover_wrapper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         card_view:cardCornerRadius="8dp"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintStart_toStartOf="parent">
@@ -41,37 +43,64 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="58dp"
-        android:layout_marginBottom="8dp"
-        android:textSize="24sp"
+        android:layout_marginBottom="4dp"
+        android:maxLines="2"
+        android:textSize="20sp"
         android:textStyle="bold"
-        card_view:layout_constraintBottom_toTopOf="@+id/anime_image_rating"
+        card_view:layout_constraintBottom_toTopOf="@+id/anime_detail_genres"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintRight_toRightOf="parent"
-        card_view:layout_constraintStart_toEndOf="@+id/anime_cover_wrapper"
+        card_view:layout_constraintStart_toStartOf="@+id/anime_detail_type"
         card_view:layout_constraintTop_toTopOf="@+id/anime_cover_wrapper"
         tools:text="@string/anime_title" />
+
+    <TextView
+        android:id="@+id/anime_detail_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_opaque_orange_8dp"
+        android:paddingHorizontal="8dp"
+        android:textColor="@color/orange"
+        card_view:layout_constraintBottom_toTopOf="@+id/anime_image_rating"
+        card_view:layout_constraintLeft_toLeftOf="@+id/anime_image_rating"
+        tools:text="@tools:sample/cities" />
+
+    <TextView
+        android:id="@+id/anime_detail_genres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@drawable/rounded_opaque_gray_8dp"
+        android:paddingHorizontal="8dp"
+        card_view:layout_constraintBottom_toTopOf="@+id/anime_image_rating"
+        card_view:layout_constraintLeft_toRightOf="@+id/anime_detail_type"
+        tools:text="@tools:sample/cities" />
 
     <ImageView
         android:id="@+id/anime_image_rating"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
+        android:importantForAccessibility="no"
         android:src="@drawable/ic_star_24dp"
         card_view:layout_constraintBottom_toBottomOf="@+id/anime_cover_wrapper"
         card_view:layout_constraintLeft_toRightOf="@+id/anime_cover_wrapper" />
 
     <TextView
         android:id="@+id/tv_detail_rating"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
+        android:layout_marginEnd="0dp"
         android:ellipsize="end"
         android:maxLines="1"
         card_view:layout_constraintBottom_toBottomOf="@+id/anime_image_rating"
-        card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toEndOf="@+id/anime_image_rating"
         card_view:layout_constraintTop_toTopOf="@+id/anime_image_rating"
         tools:text="@tools:sample/us_zipcodes" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
